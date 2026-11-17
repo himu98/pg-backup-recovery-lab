@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly restore drill, Monday 03:00
+
+[Timer]
+OnCalendar=Mon *-*-* 03:00:00
+# If the VM was off at the scheduled time, run as soon as it boots
+Persistent=true
+RandomizedDelaySec=5min
+
+[Install]
+WantedBy=timers.target

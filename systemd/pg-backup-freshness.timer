@@ -1,0 +1,11 @@
+[Unit]
+Description=Hourly backup freshness check
+
+[Timer]
+OnCalendar=hourly
+# If the VM was off at the scheduled time, run as soon as it boots
+Persistent=true
+RandomizedDelaySec=5min
+
+[Install]
+WantedBy=timers.target

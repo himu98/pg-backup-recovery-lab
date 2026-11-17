@@ -1,0 +1,14 @@
+[Unit]
+Description=Logical backup of PostgreSQL databases (pg_dump)
+After=postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=oneshot
+User=postgres
+Group=postgres
+ExecStart=/opt/pg-backup-recovery-lab/scripts/pg_logical_backup.sh
+# A backup should never fight the database for CPU and disk
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

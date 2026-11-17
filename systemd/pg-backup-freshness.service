@@ -1,0 +1,14 @@
+[Unit]
+Description=Check that PostgreSQL backups are still being taken
+After=postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=oneshot
+User=postgres
+Group=postgres
+ExecStart=/opt/pg-backup-recovery-lab/scripts/check_backup_freshness.sh
+# A backup should never fight the database for CPU and disk
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
