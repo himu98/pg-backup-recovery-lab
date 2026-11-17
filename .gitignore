@@ -1,0 +1,6 @@
+*.dump
+*.partial
+*.tar.gz
+/backups/
+.env
+*.log
